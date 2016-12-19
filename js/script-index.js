@@ -13,9 +13,10 @@ $(document).ready( function(){
 function renderHighlightedRecipes(recipesArray) {
 	//console.log('Recipes: ', recipesArray);
 	//for(var i=0;i<v1.length;i++)
-	for (var i = 0 ; i < recipesArray.length ; i++) {
+	for (i = 0 ; i < recipesArray.length ; i++) {
 		if(recipesArray[i].highlighted == true){
-			return function renderRecipe(recipesArray);
+			renderRecipe(recipesArray[i]);
+			console.log('Recipes: ', recipesArray);
 		}
 	}
 }
@@ -27,7 +28,8 @@ function renderHighlightedRecipes(recipesArray) {
 * archivo "templates/templates-recipe.html"
 */
 function renderRecipe(recipe) {
-	console.log('Voy a pintar la receta: ', recipe);
+	//console.log('Voy a pintar la receta: ', recipe);
+
 }
 
 
@@ -48,4 +50,9 @@ function renderActivity(recipe) {
 	
 }
 
-
+function printNews(){
+	$(document).ready(function(){
+        $("#texto-news").text("NUEVAS RECETAS");
+	})
+}
+printNews();
