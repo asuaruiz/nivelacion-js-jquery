@@ -15,8 +15,9 @@ function renderHighlightedRecipes(recipesArray) {
 	//for(var i=0;i<v1.length;i++)
 	for (i = 0 ; i < recipesArray.length ; i++) {
 		if(recipesArray[i].highlighted == true){
-			renderRecipe(recipesArray[i]);
-			console.log('Recipes: ', recipesArray);
+			var recipe =recipesArray[i];
+			renderRecipe(recipe);
+			//console.log('Recipes: ', recipesArray);
 		}
 	}
 }
@@ -28,9 +29,23 @@ function renderHighlightedRecipes(recipesArray) {
 * archivo "templates/templates-recipe.html"
 */
 function renderRecipe(recipe) {
+	var title = recipe.title;
+	var srcName = recipe.source.name;
+	var name = recipe.name;
+    $('.list-recipes').append('<a class="item-recipe" href="#">' +
+				    '<span class="attribution">' +
+			    		'<span class="title-recipe">' + title + '</span>' +
+			    		'<span class="metadata-recipe">' +
+			      			'<span class="author-recipe">' + srcName + '</span>' +
+			      			'<span class="bookmarks-recipe">' +
+			        			'<span class="icon-bookmark"></span>' + 
+			      			'</span>' +
+			    			'</span>' +
+			  		'</span>' + 
+		  			'<img src="img/recipes/640x800/' + name + '.jpg"/>'+'</a>');
 	//console.log('Voy a pintar la receta: ', recipe);
 
-}
+};
 
 
 
@@ -47,7 +62,10 @@ function renderActivities(activitiesArray) {
 * archivo "templates/templates-activity.html"
 */
 function renderActivity(recipe) {
-	
+	var name = recipe.name;
+	$(document).ready(function(){
+		$(".list-recipes").append('<a class="item-recipe" href="#"><span class="attribution"><span class="title-recipe"> TITULO DE LA RECETA (ATRIBUTO "title" ) </span><span class="metadata-recipe"><span class="author-recipe">NOMBRE DEL AUTO DE LA RECETA (ATRIBUTO "source.name") </span><span class="bookmarks-recipe"><span class="icon-bookmark"></span></span> </span></span><img src="URL DE LA IMAGEN" /></a>')
+	})
 }
 
 function printNews(){
